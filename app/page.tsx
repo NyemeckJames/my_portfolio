@@ -263,16 +263,16 @@ const Portfolio = () => {
           ? [
               "Architecture d'Agents Intelligents: Système orchestré par un agent coordinateur qui délègue les tâches à des agents spécialisés (Budget, Planning, Expert BTP).",
               "Intelligence et Contextualisation: Utilisation de Retrieval-Augmented Generation (RAG) avec une base de connaissances vectorielle (PGVector) pour fournir des réponses pertinentes au contexte local.",
-              "Scalabilité et Robustesse: Architecture découplée avec un bus de communication asynchrone (Celery et Redis), permettant une évolutivité exceptionnelle.",
+              "Scalabilité, évolutivité et robustesse : architecture découplée avec un bus de communication asynchrone (Celery et Redis), permettant une évolutivité exceptionnelle. Les agents écoutent et communiquent uniquement via les canaux du bus asynchrone, ce qui permet d’ajouter ou de retirer des agents sans refonte majeure. ",
               "Communication Temps Réel: Interaction fluide via WebSockets pour des notifications et un dialogue en temps réel.",
             ]
           : [
               "Intelligent Agent Architecture: System orchestrated by a coordinator agent that delegates tasks to specialized agents (Budget, Planning, Construction Expert).",
               "Intelligence and Contextualization: Use of Retrieval-Augmented Generation (RAG) with a vector knowledge base (PGVector) to provide relevant responses to local context.",
-              "Scalability and Robustness: Decoupled architecture with asynchronous communication bus (Celery and Redis), enabling exceptional scalability.",
+              "Scalability, extensibility, and robustness: a decoupled architecture using an asynchronous communication bus (Celery and Redis), delivering exceptional scalability. Agents listen and interact exclusively through the asynchronous bus channels, allowing agents to be added or removed without major refactoring.",
               "Real-Time Communication: Smooth interaction via WebSockets for notifications and real-time dialogue.",
             ],
-      stack: ["Django", "CrewAI", "Celery", "Redis", "PostgreSQL", "PGVector", "WebSockets", "Docker"],
+      stack: ["Django", "CrewAI", "Celery", "Redis", "PostgreSQL", "PGVector", "Django-channels"],
     },
     {
       id: "suivi-chantiers",
@@ -285,12 +285,12 @@ const Portfolio = () => {
           : "A single, reliable source of truth to centralize and structure construction site data.",
       contexte:
         language === "fr"
-          ? "Le principal obstacle à la digitalisation du BTP était la dispersion des informations. Il y avait un besoin critique de centraliser et de structurer les données de chantier pour en faire une source de vérité unique et fiable."
-          : "The main obstacle to construction digitalization was information dispersion. There was a critical need to centralize and structure construction site data to make it a single, reliable source of truth.",
+          ? "Le secteur du BTP au Cameroun, moteur clé de l’économie soutenu par la diaspora, est confronté à de sérieux défis : insécurité foncière, difficultés de financement, mauvaise gestion à distance et manque de transparence. Ces problèmes provoquent retards, dérives budgétaires et pertes de confiance. D'où la nécessité d’une solution technologique locale pour un meilleur suivi des chantiers, la sécurisation des transactions foncières et l’accès facilité au financement."
+          : "The construction sector in Cameroon, a key driver of the economy supported by the diaspora, faces major challenges: insecure land ownership, financing issues, poor remote project management, and low financial transparency. These issues lead to delays, budget overruns, and investor distrust. This highlights the need for a local tech solution to ensure reliable project tracking, secure land transactions, and easier access to funding.",
       role:
         language === "fr"
-          ? "J'ai développé le backend de cette plateforme, en me concentrant sur la modélisation d'une base de données robuste et la création d'API sécurisées. Mon travail a été la fondation sur laquelle le système multi-agents a ensuite pu s'appuyer."
-          : "I developed the backend of this platform, focusing on modeling a robust database and creating secure APIs. My work was the foundation on which the multi-agent system could then rely.",
+          ? "J'ai développé le backend de cette plateforme, en me concentrant sur la modélisation d'une base de données robuste et la création d'API sécurisées. Mon travail a été la fondation sur laquelle le module IA a ensuite pu s'appuyer."
+          : "I developed the backend of this platform, focusing on modeling a robust database and creating secure APIs. My work was the foundation on which the IA Module could then rely.",
       solution:
         language === "fr"
           ? [
@@ -342,16 +342,16 @@ const Portfolio = () => {
     },
     {
       id: "messagerie",
-      title: language === "fr" ? "Application de Messagerie Instantanée" : "Instant Messaging Application",
+      title: language === "fr" ? "Application de Messagerie interne sur réseau local" : "Internal LAN Chat Application",
       icon: <MessageSquare className="w-10 h-10 mx-auto" />,
       accroche:
         language === "fr"
-          ? "Une architecture distribuée garantissant des communications fluides et fiables pour des milliers d'utilisateurs."
-          : "A distributed architecture ensuring smooth and reliable communications for thousands of users.",
+          ? "Une messagerie distribuée, fluide et fiable, pensée pour les réseaux internes."
+          : "A distributed architecture ensuring smooth, reliable messaging on local networks.",
       contexte:
         language === "fr"
-          ? "Développer une application de chat performante, capable de gérer des discussions de groupe et des milliers d'utilisateurs sans sacrifier la vitesse ou la fiabilité."
-          : "Develop a high-performance chat application capable of handling group discussions and thousands of users without sacrificing speed or reliability.",
+          ? "Dans le cadre de l'amélioration de la communication interne, une structure locale souhaite mettre en place une application de messagerie instantanée hébergée sur un serveur interne, accessible via son réseau local. Cette solution vise à garantir la continuité, l'intégrité et la confidentialité des échanges professionnels entre les employés, y compris en cas de coupure de la connexion Internet. L'application sera exclusivement utilisée durant les heures de travail pour centraliser et sécuriser les communications internes."
+          : "As part of its internal communication improvement strategy, a local organization aims to deploy an instant messaging application hosted on an internal server within its local area network. The goal is to ensure the continuity, integrity, and confidentiality of professional exchanges between employees—even in the event of internet outages. The application will be used exclusively during working hours to centralize and secure internal communications.",
       role:
         language === "fr"
           ? "J'ai mis en œuvre l'architecture backend en m'appuyant sur mon propre module d'authentification. Le défi était de gérer la communication temps réel de manière efficace et scalable."
@@ -359,16 +359,16 @@ const Portfolio = () => {
       solution:
         language === "fr"
           ? [
-              "Architecture Hybride: Utilisation de Django pour la gestion classique et de Django Channels pour la communication instantanée via WebSockets.",
-              "Distribution des Messages: Redis utilisé comme un bus de messages pub/sub pour une scalabilité horizontale.",
-              "Stockage Optimisé: Persistance des messages dans MongoDB pour ses performances en écriture, et données relationnelles dans PostgreSQL.",
+              "Architecture hybride : Django est utilisé pour la gestion des fonctionnalités classiques, tandis que Django Channels prend en charge la communication en temps réel via WebSockets.",
+              "Distribution des messages : Redis sert de bus de messages en mode pub/sub, permettant une scalabilité horizontale efficace.",
+              "Stockage optimisé : Les messages sont persistés dans MongoDB pour sa rapidité en écriture, tandis que PostgreSQL gère les données relationnelles (utilisateurs, permissions, etc.).",
             ]
           : [
-              "Hybrid Architecture: Use of Django for classic management and Django Channels for instant communication via WebSockets.",
-              "Message Distribution: Redis used as a pub/sub message bus for horizontal scalability.",
-              "Optimized Storage: Message persistence in MongoDB for its write performance, and relational data in PostgreSQL.",
+              "Hybrid Architecture: Django handles traditional backend logic, while Django Channels manages real-time communication via WebSockets.",
+              "Message Distribution: Redis acts as a pub/sub message bus, enabling efficient horizontal scalability.",
+              "Optimized Storage: Messages are persisted in MongoDB for its fast write performance, while relational data is stored in PostgreSQL.",
             ],
-      stack: ["Django", "Channels", "Redis", "MongoDB", "PostgreSQL", "Celery", "Docker"],
+      stack: ["Django", "Channels", "Redis", "MongoDB", "PostgreSQL", "Celery"],
     },
   ]
 
