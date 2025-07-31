@@ -322,8 +322,8 @@ const Portfolio = () => {
           : "Faced with security risks and code duplication, it was crucial to develop a centralized, modular and secure authentication system for Django, meeting modern requirements.",
       role:
         language === "fr"
-          ? "En tant qu'ingénieur backend, j'ai conçu et développé ce module d'authentification universel, pensé comme un sous-système indépendant et facilement intégrable."
-          : "As a backend engineer, I designed and developed this universal authentication module, conceived as an independent and easily integrable subsystem.",
+          ? "En tant que developpeur backend, j'ai conçu et développé ce module d'authentification universel, pensé comme un sous-système indépendant et facilement intégrable."
+          : "As a backend developper, I designed and developed this universal authentication module, conceived as an independent and easily integrable subsystem.",
       solution:
         language === "fr"
           ? [
@@ -354,8 +354,8 @@ const Portfolio = () => {
           : "As part of its internal communication improvement strategy, a local organization aims to deploy an instant messaging application hosted on an internal server within its local area network. The goal is to ensure the continuity, integrity, and confidentiality of professional exchanges between employees—even in the event of internet outages. The application will be used exclusively during working hours to centralize and secure internal communications.",
       role:
         language === "fr"
-          ? "J'ai mis en œuvre l'architecture backend en m'appuyant sur mon propre module d'authentification. Le défi était de gérer la communication temps réel de manière efficace et scalable."
-          : "I implemented the backend architecture based on my own authentication module. The challenge was to manage real-time communication efficiently and scalably.",
+          ? "Responsable de la mise en œuvre complète du backend, incluant l’intégration d’un module d’authentification maison et la configuration d’une architecture temps réel sur réseau local, assurant des échanges fluides et fiables via WebSockets. L’application a été déployée sur un serveur interne, garantissant résilience et autonomie du système même en cas de coupure Internet."
+          : "Responsible for the complete implementation of the backend, including the integration of a custom-built authentication module and the setup of a real-time architecture over a local network, ensuring smooth and reliable communication via WebSockets. The application was deployed on an internal server, providing resilience and system autonomy even in the event of Internet outages.",
       solution:
         language === "fr"
           ? [
