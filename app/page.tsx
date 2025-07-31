@@ -54,7 +54,7 @@ const translations = {
     // Hero Section
     heroTitle: "NYEMECK DJOUOKOUO James Romaric",
     heroSubtitle:
-      "Se spécialise depuis plus de 3 ans dans la conception et l'implémentation des systèmes robustes et évolutifs avec Python et son framework Django ainsi que les technologies d'agents intelligents.",
+      "Développeur backend spécialisé depuis 3+ ans dans la conception de systèmes robustes ,évolutifs et distribués avec Django, Python",
     discoverProjects: "Découvrir mes projets",
     contactMe: "Me contacter",
     downloadCV: "Télécharger mon CV",
@@ -113,7 +113,7 @@ const translations = {
     // Hero Section
     heroTitle: "NYEMECK DJOUOKOUO James Romaric",
     heroSubtitle:
-      "Specializing for over 3 years in designing and implementing robust, scalable systems with Python, Django, and intelligent agent technologies.",
+      "Backend developer with 3+ years of experience designing robust, scalable, and distributed systems using Django and Python.",
     discoverProjects: "Discover my projects",
     contactMe: "Contact me",
     downloadCV: "Download my CV",
