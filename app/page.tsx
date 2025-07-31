@@ -22,19 +22,21 @@ import {
   Languages,
   Download,
   Send,
+  Lock,
+  Map
 } from "lucide-react"
 import emailjs from "@emailjs/browser"
 
 // Theme Context
 const ThemeContext = createContext({
   theme: "light",
-  toggleTheme: () => {},
+  toggleTheme: () => { },
 })
 
 // Language Context
 const LanguageContext = createContext({
   language: "fr",
-  toggleLanguage: () => {},
+  toggleLanguage: () => { },
   t: (key: string) => key,
 })
 
@@ -261,17 +263,17 @@ const Portfolio = () => {
       solution:
         language === "fr"
           ? [
-              "Architecture d'Agents Intelligents: Système orchestré par un agent coordinateur qui délègue les tâches à des agents spécialisés (Budget, Planning, Expert BTP).",
-              "Intelligence et Contextualisation: Utilisation de Retrieval-Augmented Generation (RAG) avec une base de connaissances vectorielle (PGVector) pour fournir des réponses pertinentes au contexte local.",
-              "Scalabilité, évolutivité et robustesse : architecture découplée avec un bus de communication asynchrone (Celery et Redis), permettant une évolutivité exceptionnelle. Les agents écoutent et communiquent uniquement via les canaux du bus asynchrone, ce qui permet d’ajouter ou de retirer des agents sans refonte majeure. ",
-              "Communication Temps Réel: Interaction fluide via WebSockets pour des notifications et un dialogue en temps réel.",
-            ]
+            "Architecture d'Agents Intelligents: Système orchestré par un agent coordinateur qui délègue les tâches à des agents spécialisés (Budget, Planning, Expert BTP).",
+            "Intelligence et Contextualisation: Utilisation de Retrieval-Augmented Generation (RAG) avec une base de connaissances vectorielle (PGVector) pour fournir des réponses pertinentes au contexte local.",
+            "Scalabilité, évolutivité et robustesse : architecture découplée avec un bus de communication asynchrone (Celery et Redis), permettant une évolutivité exceptionnelle. Les agents écoutent et communiquent uniquement via les canaux du bus asynchrone, ce qui permet d’ajouter ou de retirer des agents sans refonte majeure. ",
+            "Communication Temps Réel: Interaction fluide via WebSockets pour des notifications et un dialogue en temps réel.",
+          ]
           : [
-              "Intelligent Agent Architecture: System orchestrated by a coordinator agent that delegates tasks to specialized agents (Budget, Planning, Construction Expert).",
-              "Intelligence and Contextualization: Use of Retrieval-Augmented Generation (RAG) with a vector knowledge base (PGVector) to provide relevant responses to local context.",
-              "Scalability, extensibility, and robustness: a decoupled architecture using an asynchronous communication bus (Celery and Redis), delivering exceptional scalability. Agents listen and interact exclusively through the asynchronous bus channels, allowing agents to be added or removed without major refactoring.",
-              "Real-Time Communication: Smooth interaction via WebSockets for notifications and real-time dialogue.",
-            ],
+            "Intelligent Agent Architecture: System orchestrated by a coordinator agent that delegates tasks to specialized agents (Budget, Planning, Construction Expert).",
+            "Intelligence and Contextualization: Use of Retrieval-Augmented Generation (RAG) with a vector knowledge base (PGVector) to provide relevant responses to local context.",
+            "Scalability, extensibility, and robustness: a decoupled architecture using an asynchronous communication bus (Celery and Redis), delivering exceptional scalability. Agents listen and interact exclusively through the asynchronous bus channels, allowing agents to be added or removed without major refactoring.",
+            "Real-Time Communication: Smooth interaction via WebSockets for notifications and real-time dialogue.",
+          ],
       stack: ["Django", "CrewAI", "Celery", "Redis", "PostgreSQL", "PGVector", "Django-channels"],
     },
     {
@@ -294,15 +296,15 @@ const Portfolio = () => {
       solution:
         language === "fr"
           ? [
-              "Modélisation des Données: Schéma de base de données complet sur PostgreSQL avec PostGIS pour la géolocalisation.",
-              "API RESTful: API complète avec Django Rest Framework pour une manipulation sécurisée des données.",
-              "Intégration et Fiabilité: Mécanismes de validation pour garantir l'intégrité et la cohérence des données.",
-            ]
+            "Modélisation des Données: Schéma de base de données complet sur PostgreSQL avec PostGIS pour la géolocalisation.",
+            "API RESTful: API complète avec Django Rest Framework pour une manipulation sécurisée des données.",
+            "Intégration et Fiabilité: Mécanismes de validation pour garantir l'intégrité et la cohérence des données.",
+          ]
           : [
-              "Data Modeling: Complete database schema on PostgreSQL with PostGIS for geolocation.",
-              "RESTful API: Complete API with Django Rest Framework for secure data manipulation.",
-              "Integration and Reliability: Validation mechanisms to ensure data integrity and consistency.",
-            ],
+            "Data Modeling: Complete database schema on PostgreSQL with PostGIS for geolocation.",
+            "RESTful API: Complete API with Django Rest Framework for secure data manipulation.",
+            "Integration and Reliability: Validation mechanisms to ensure data integrity and consistency.",
+          ],
       stack: ["Django", "Django Rest Framework", "PostgreSQL", "PostGIS"],
     },
     {
@@ -327,17 +329,17 @@ const Portfolio = () => {
       solution:
         language === "fr"
           ? [
-              "Architecture Modulaire et Sécurisée: Application Django découplée avec authentification robuste (bcrypt, JWT, 2FA), déployable en microservice.",
-              "Support OAuth 2.0 & SSO: Intégration complète de `django-oauth-toolkit` et `social-auth-app-django` pour la délégation d'accès et l'authentification via des tiers.",
-              "Gestion Fine des Rôles (RBAC): Système de permissions granulaires et contextuelles pour contrôler précisément l'accès aux ressources.",
-              "API et Intégration Facilitée: API RESTful avec documentation auto-générée (Swagger) pour une interopérabilité simplifiée.",
-            ]
+            "Architecture Modulaire et Sécurisée: Application Django découplée avec authentification robuste (bcrypt, JWT, 2FA), déployable en microservice.",
+            "Support OAuth 2.0 & SSO: Intégration complète de `django-oauth-toolkit` et `social-auth-app-django` pour la délégation d'accès et l'authentification via des tiers.",
+            "Gestion Fine des Rôles (RBAC): Système de permissions granulaires et contextuelles pour contrôler précisément l'accès aux ressources.",
+            "API et Intégration Facilitée: API RESTful avec documentation auto-générée (Swagger) pour une interopérabilité simplifiée.",
+          ]
           : [
-              "Modular and Secure Architecture: Decoupled Django application with robust authentication (bcrypt, JWT, 2FA), deployable as microservice.",
-              "OAuth 2.0 & SSO Support: Complete integration of `django-oauth-toolkit` and `social-auth-app-django` for access delegation and third-party authentication.",
-              "Fine Role Management (RBAC): Granular and contextual permission system to precisely control resource access.",
-              "API and Facilitated Integration: RESTful API with auto-generated documentation (Swagger) for simplified interoperability.",
-            ],
+            "Modular and Secure Architecture: Decoupled Django application with robust authentication (bcrypt, JWT, 2FA), deployable as microservice.",
+            "OAuth 2.0 & SSO Support: Complete integration of `django-oauth-toolkit` and `social-auth-app-django` for access delegation and third-party authentication.",
+            "Fine Role Management (RBAC): Granular and contextual permission system to precisely control resource access.",
+            "API and Facilitated Integration: RESTful API with auto-generated documentation (Swagger) for simplified interoperability.",
+          ],
       stack: ["Django", "DRF", "SimpleJWT", "OAuth-Toolkit", "Social-Auth", "PostgreSQL"],
     },
     {
@@ -359,17 +361,88 @@ const Portfolio = () => {
       solution:
         language === "fr"
           ? [
-              "Architecture hybride : Django est utilisé pour la gestion des fonctionnalités classiques, tandis que Django Channels prend en charge la communication en temps réel via WebSockets.",
-              "Distribution des messages : Redis sert de bus de messages en mode pub/sub, permettant une scalabilité horizontale efficace.",
-              "Stockage optimisé : Les messages sont persistés dans MongoDB pour sa rapidité en écriture, tandis que PostgreSQL gère les données relationnelles (utilisateurs, permissions, etc.).",
-            ]
+            "Architecture hybride : Django est utilisé pour la gestion des fonctionnalités classiques, tandis que Django Channels prend en charge la communication en temps réel via WebSockets.",
+            "Distribution des messages : Redis sert de bus de messages en mode pub/sub, permettant une scalabilité horizontale efficace.",
+            "Stockage optimisé : Les messages sont persistés dans MongoDB pour sa rapidité en écriture, tandis que PostgreSQL gère les données relationnelles (utilisateurs, permissions, etc.).",
+          ]
           : [
-              "Hybrid Architecture: Django handles traditional backend logic, while Django Channels manages real-time communication via WebSockets.",
-              "Message Distribution: Redis acts as a pub/sub message bus, enabling efficient horizontal scalability.",
-              "Optimized Storage: Messages are persisted in MongoDB for its fast write performance, while relational data is stored in PostgreSQL.",
-            ],
+            "Hybrid Architecture: Django handles traditional backend logic, while Django Channels manages real-time communication via WebSockets.",
+            "Message Distribution: Redis acts as a pub/sub message bus, enabling efficient horizontal scalability.",
+            "Optimized Storage: Messages are persisted in MongoDB for its fast write performance, while relational data is stored in PostgreSQL.",
+          ],
       stack: ["Django", "Channels", "Redis", "MongoDB", "PostgreSQL", "Celery"],
     },
+    {
+      id: "intermediation-bancaire-itns",
+      title:
+        language === "fr"
+          ? "Amélioration backend d'une application d’intermédiation bancaire"
+          : "Backend improvement of a banking intermediation platform",
+      icon: <Lock className="w-10 h-10 mx-auto" />,
+      accroche:
+        language === "fr"
+          ? "Refonte technique et évolutions fonctionnelles d’une plateforme d’intermédiation bancaire existante afin d’en renforcer la robustesse, la modularité et la sécurité."
+          : "Technical refactoring and functional evolution of an existing banking intermediation platform to strengthen robustness, modularity, and security.",
+      contexte:
+        language === "fr"
+          ? "ITNS disposait d'une application d’intermédiation bancaire en production, mais qui nécessitait une série d’améliorations pour gagner en fiabilité, modularité et conformité. Le projet visait à optimiser la structure backend existante tout en ajoutant de nouvelles fonctionnalités demandées par les utilisateurs finaux ou les partenaires bancaires."
+          : "ITNS had a banking intermediation application already in production, but it needed several improvements to enhance reliability, modularity, and compliance. The project aimed to optimize the existing backend structure while adding new features requested by end users and banking partners.",
+      role:
+        language === "fr"
+          ? "En tant que Développeur Backend consultant, j’ai été chargé de réaliser des tâches ciblées répondant à des besoins fonctionnels précis. Cela a inclus la refonte du schéma de base de données pour améliorer la modularité, ainsi que l’implémentation de fonctionnalités métiers critiques telles que la soumission de demandes de prêt ou l'affichage des offres bancaires filtrées selon le profil utilisateur."
+          : "As a Backend Developer consultant, I was responsible for executing targeted tasks to meet specific functional needs. This included redesigning the database schema to improve modularity, and implementing business-critical features such as loan application submission or filtering banking offers based on user profiles.",
+      solution:
+        language === "fr"
+          ? [
+            "Refonte de la base de données : Restructuration des modèles Django pour découpler les entités utilisateurs, produits bancaires, et partenaires financiers.",
+            "Renforcement de l'authentification : Ajout de champs KYC, intégration de vérifications de documents et amélioration de la gestion des permissions.",
+            "Mise en place du module de demandes de prêt : Interface backend pour créer, suivre et valider les demandes de services financiers.",
+            "Affichage dynamique des offres : API REST permettant de lister, filtrer et recommander des offres bancaires personnalisées selon le profil utilisateur.",
+          ]
+          : [
+            "Database refactoring: Redesign of Django models to decouple user entities, financial products, and banking partners.",
+            "Authentication hardening: Added KYC fields, integrated document checks, and improved permission management.",
+            "Loan request module: Backend interface to create, track, and validate financial service requests.",
+            "Dynamic offers listing: REST API to list, filter, and recommend personalized banking offers based on user profile.",
+          ],
+      stack: ["Django", "Django Rest Framework", "PostgreSQL", "MongoDB", "django-filters"],
+    },
+    {
+  id: "georeferencement-congo",
+  title:
+    language === "fr"
+      ? "Système modulaire de géoréférencement des centres d’intérêts"
+      : "Modular georeferencing system for points of interest",
+  icon: <Map className="w-10 h-10 mx-auto" />,
+  accroche:
+    language === "fr"
+      ? "Une plateforme de cartographie intelligente capable d’agréger et de gérer plusieurs types de centres d’intérêts géolocalisés (entreprises, stations, concessions minières, agences bancaires, etc.) dans une architecture unifiée et performante."
+      : "An intelligent mapping platform capable of aggregating and managing various types of geolocated points of interest (businesses, stations, mining concessions, bank agencies, etc.) in a unified and efficient architecture.",
+  contexte:
+    language === "fr"
+      ? "Dans un contexte de développement économique accéléré au Congo-Brazzaville, les particuliers et entreprises ont besoin de solutions de visualisation et d’analyse spatiale centralisées pour prendre des décisions stratégiques. Cette application de géoréférencement vise à répondre à ce besoin en permettant la cartographie dynamique et l’analyse de différents types d’entités localisées (centres d’intérêts) dans une interface unique."
+      : "In the context of accelerated economic development in Congo-Brazzaville, individuals and businesses need centralized geospatial visualization and analysis solutions to support strategic decisions. This georeferencing application addresses this need by enabling dynamic mapping and analysis of various localized entities (points of interest) through a single interface.",
+  role:
+    language === "fr"
+      ? "En tant que Développeur Backend, ma mission est de concevoir un schéma de base de données modulaire capable de représenter efficacement différents types de centres d’intérêts, en factorisant leurs caractéristiques communes et en respectant leurs spécificités. J'ai également pour rôle de proposer des structures d’API performantes et une interface d’analyse intuitive à destination d’analystes métier, avec des statistiques géospatiales exploitables (répartition, densité, proximité)."
+      : "As a Backend Developer, my role is to design a modular database schema capable of effectively representing different types of points of interest, factoring in their common characteristics while preserving their specificities. I also design efficient API structures and propose an intuitive analysis interface aimed at business analysts, featuring actionable geospatial statistics (distribution, density, proximity).",
+  solution:
+    language === "fr"
+      ? [
+          "Modélisation avec `PolymorphicModel` de django-polymorphic : gestion centralisée des centres d’intérêts tout en conservant les champs spécifiques à chaque type (station, entreprise, agence, etc.), avec des requêtes unifiées.",
+          "Optimisation géospatiale avec PostGIS : stockage des coordonnées, affichage sur carte interactive, et calculs de distances dynamiques entre entités.",
+          "API REST unifiée : récupération efficace et filtrée des centres d’intérêt, compatible GeoJSON pour une intégration directe côté frontend cartographique.",
+          "Proposition d’un tableau de bord analytique : indicateurs spatiaux clés pour l’analyse métier (nombre par type, répartition géographique, proximité avec zones stratégiques)."
+        ]
+      : [
+          "Modeling with `PolymorphicModel` from django-polymorphic: centralized management of all points of interest while preserving type-specific fields (station, company, agency, etc.) with unified queries.",
+          "Geospatial optimization with PostGIS: coordinate storage, interactive map display, and dynamic distance calculations between entities.",
+          "Unified REST API: efficient and filtered retrieval of all points of interest, GeoJSON-compatible for direct frontend map integration.",
+          "Analytical dashboard proposal: key spatial indicators for business analysis (count by type, geographic distribution, proximity to strategic zones)."
+        ],
+  stack: ["Django", "PostgreSQL", "PostGIS", "Django Rest Framework", "django-polymorphic", "MapBox"],
+}
+
   ]
 
   // Function to navigate to a specific project
@@ -515,7 +588,7 @@ const Portfolio = () => {
             <p className="mt-4 text-lg text-gray-600 dark:text-gray-300">{t("featuredProjectsSubtitle")}</p>
           </div>
           <div className="mx-auto mt-16 grid max-w-lg grid-cols-1 items-start gap-8 sm:max-w-xl sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-            {projects.slice(0, 4).map((project, index) => (
+            {projects.map((project, index) => (
               <div
                 key={project.id}
                 className="group relative bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 flex flex-col h-full border border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-600 animate-fade-in-up overflow-hidden"
@@ -883,11 +956,10 @@ const Portfolio = () => {
                   <button
                     key={item.id}
                     onClick={() => setCurrentPage(item.id)}
-                    className={`relative px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 ${
-                      currentPage === item.id
+                    className={`relative px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 ${currentPage === item.id
                         ? "text-blue-600 dark:text-blue-400"
                         : "text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
-                    }`}
+                      }`}
                   >
                     {item.name}
                     {currentPage === item.id && (
@@ -959,11 +1031,10 @@ const Portfolio = () => {
                       setCurrentPage(item.id)
                       setMobileMenuOpen(false)
                     }}
-                    className={`px-4 py-3 rounded-lg font-medium text-left transition-all duration-300 ${
-                      currentPage === item.id
+                    className={`px-4 py-3 rounded-lg font-medium text-left transition-all duration-300 ${currentPage === item.id
                         ? "bg-blue-600 text-white"
                         : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
-                    }`}
+                      }`}
                   >
                     {item.name}
                   </button>
