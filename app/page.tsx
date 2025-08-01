@@ -1,4 +1,5 @@
 "use client"
+
 import type React from "react"
 import { useState, useEffect, createContext, useContext } from "react"
 import {
@@ -6,14 +7,8 @@ import {
   X,
   ChevronRight,
   Mail,
-  Github,
-  Linkedin,
-  Code,
-  Database,
   Bot,
   Shield,
-  Zap,
-  MapPin,
   MessageSquare,
   Server,
   Sun,
@@ -23,7 +18,7 @@ import {
   Download,
   Send,
   Lock,
-  Map
+  Map,
 } from "lucide-react"
 import emailjs from "@emailjs/browser"
 
@@ -216,6 +211,7 @@ const Portfolio = () => {
     message: "",
   })
   const [formStatus, setFormStatus] = useState<"idle" | "sending" | "success" | "error">("idle")
+
   const { theme, toggleTheme } = useTheme()
   const { language, toggleLanguage, t } = useLanguage()
 
@@ -227,17 +223,22 @@ const Portfolio = () => {
   ]
 
   const technologies = [
-    { name: "Python", icon: <Code className="w-8 h-8" /> },
-    { name: "Django", icon: <Server className="w-8 h-8" /> },
-    { name: "PostgreSQL", icon: <Database className="w-8 h-8" /> },
-    { name: "PostGIS", icon: <MapPin className="w-8 h-8" /> },
-    { name: "PGVector", icon: <Database className="w-8 h-8" /> },
-    { name: "CrewAI", icon: <Bot className="w-8 h-8" /> },
-    { name: "Celery", icon: <Zap className="w-8 h-8" /> },
-    { name: "Docker", icon: <Database className="w-8 h-8" /> },
-    { name: "Redis", icon: <Database className="w-8 h-8" /> },
-    { name: "WebSockets", icon: <MessageSquare className="w-8 h-8" /> },
-    { name: "Architecture Logicielle", icon: <Server className="w-8 h-8" /> },
+    { name: "Python", image: "/python_icon.png" },
+    { name: "NextJS", image: "/nextjs_icon.png" },
+    { name: "Django", image: "/django_icon.png" },
+    { name: "Django-channels", image: "/django-channels.jpeg" },
+    { name: "PostgreSQL", image: "/postgre_icon.png" },
+    { name: "MongoDB", image: "/mongodb_icon.png" },
+    { name: "Celery", image: "/celery_icon.png" },
+    { name: "Redis", image: "/redis_icon.png" },
+    { name: "Nginx", image: "/celery_icon.png" },
+    { name: "Docker", image: "/docker_icon.png" },
+    { name: "VS Code", image: "/vscode_icon.png" },
+    { name: "Cursor", image: "/cursor_icon.png" },
+    { name: "Postman", image: "/postman_icon.png" },
+    { name: "Master in prompt engineering", image: "/gpt_icon.png" },
+    { name: "Ubuntu", image: "/ubuntu_icon.png" },
+    { name: "Architecture Logicielle", image: "/architecture_icon.png" },
   ]
 
   const projects = [
@@ -265,7 +266,7 @@ const Portfolio = () => {
           ? [
             "Architecture d'Agents Intelligents: Système orchestré par un agent coordinateur qui délègue les tâches à des agents spécialisés (Budget, Planning, Expert BTP).",
             "Intelligence et Contextualisation: Utilisation de Retrieval-Augmented Generation (RAG) avec une base de connaissances vectorielle (PGVector) pour fournir des réponses pertinentes au contexte local.",
-            "Scalabilité, évolutivité et robustesse : architecture découplée avec un bus de communication asynchrone (Celery et Redis), permettant une évolutivité exceptionnelle. Les agents écoutent et communiquent uniquement via les canaux du bus asynchrone, ce qui permet d’ajouter ou de retirer des agents sans refonte majeure. ",
+            "Scalabilité, évolutivité et robustesse : architecture découplée avec un bus de communication asynchrone (Celery et Redis), permettant une évolutivité exceptionnelle. Les agents écoutent et communiquent uniquement via les canaux du bus asynchrone, ce qui permet d'ajouter ou de retirer des agents sans refonte majeure. ",
             "Communication Temps Réel: Interaction fluide via WebSockets pour des notifications et un dialogue en temps réel.",
           ]
           : [
@@ -287,7 +288,7 @@ const Portfolio = () => {
           : "A single, reliable source of truth to centralize and structure construction site data.",
       contexte:
         language === "fr"
-          ? "Le secteur du BTP au Cameroun, moteur clé de l’économie soutenu par la diaspora, est confronté à de sérieux défis : insécurité foncière, difficultés de financement, mauvaise gestion à distance et manque de transparence. Ces problèmes provoquent retards, dérives budgétaires et pertes de confiance. D'où la nécessité d’une solution technologique locale pour un meilleur suivi des chantiers, la sécurisation des transactions foncières et l’accès facilité au financement."
+          ? "Le secteur du BTP au Cameroun, moteur clé de l'économie soutenu par la diaspora, est confronté à de sérieux défis : insécurité foncière, difficultés de financement, mauvaise gestion à distance et manque de transparence. Ces problèmes provoquent retards, dérives budgétaires et pertes de confiance. D'où la nécessité d'une solution technologique locale pour un meilleur suivi des chantiers, la sécurisation des transactions foncières et l'accès facilité au financement."
           : "The construction sector in Cameroon, a key driver of the economy supported by the diaspora, faces major challenges: insecure land ownership, financing issues, poor remote project management, and low financial transparency. These issues lead to delays, budget overruns, and investor distrust. This highlights the need for a local tech solution to ensure reliable project tracking, secure land transactions, and easier access to funding.",
       role:
         language === "fr"
@@ -344,52 +345,53 @@ const Portfolio = () => {
     },
     {
       id: "messagerie",
-      title: language === "fr" ? "Application de Messagerie interne sur réseau local" : "Internal LAN Chat Application",
+      title: language === "fr"
+        ? "Application de Messagerie interne sur réseau local"
+        : "Internal LAN Chat Application",
       icon: <MessageSquare className="w-10 h-10 mx-auto" />,
-      accroche:
-        language === "fr"
-          ? "Une messagerie distribuée, fluide et fiable, pensée pour les réseaux internes."
-          : "A distributed architecture ensuring smooth, reliable messaging on local networks.",
-      contexte:
-        language === "fr"
-          ? "Dans le cadre de l'amélioration de la communication interne, une structure locale souhaite mettre en place une application de messagerie instantanée hébergée sur un serveur interne, accessible via son réseau local. Cette solution vise à garantir la continuité, l'intégrité et la confidentialité des échanges professionnels entre les employés, y compris en cas de coupure de la connexion Internet. L'application sera exclusivement utilisée durant les heures de travail pour centraliser et sécuriser les communications internes."
-          : "As part of its internal communication improvement strategy, a local organization aims to deploy an instant messaging application hosted on an internal server within its local area network. The goal is to ensure the continuity, integrity, and confidentiality of professional exchanges between employees—even in the event of internet outages. The application will be used exclusively during working hours to centralize and secure internal communications.",
-      role:
-        language === "fr"
-          ? "Responsable de la mise en œuvre complète du backend, incluant l’intégration d’un module d’authentification maison et la configuration d’une architecture temps réel sur réseau local, assurant des échanges fluides et fiables via WebSockets. L’application a été déployée sur un serveur interne, garantissant résilience et autonomie du système même en cas de coupure Internet."
-          : "Responsible for the complete implementation of the backend, including the integration of a custom-built authentication module and the setup of a real-time architecture over a local network, ensuring smooth and reliable communication via WebSockets. The application was deployed on an internal server, providing resilience and system autonomy even in the event of Internet outages.",
-      solution:
-        language === "fr"
-          ? [
-            "Architecture hybride : Django est utilisé pour la gestion des fonctionnalités classiques, tandis que Django Channels prend en charge la communication en temps réel via WebSockets.",
-            "Distribution des messages : Redis sert de bus de messages en mode pub/sub, permettant une scalabilité horizontale efficace.",
-            "Stockage optimisé : Les messages sont persistés dans MongoDB pour sa rapidité en écriture, tandis que PostgreSQL gère les données relationnelles (utilisateurs, permissions, etc.).",
-          ]
-          : [
-            "Hybrid Architecture: Django handles traditional backend logic, while Django Channels manages real-time communication via WebSockets.",
-            "Message Distribution: Redis acts as a pub/sub message bus, enabling efficient horizontal scalability.",
-            "Optimized Storage: Messages are persisted in MongoDB for its fast write performance, while relational data is stored in PostgreSQL.",
-          ],
-      stack: ["Django", "Channels", "Redis", "MongoDB", "PostgreSQL", "Celery"],
-    },
+      accroche: language === "fr"
+        ? "Une messagerie distribuée, fluide et fiable, pensée pour les réseaux internes."
+        : "A distributed architecture ensuring smooth, reliable messaging on local networks.",
+      contexte: language === "fr"
+        ? "Dans un contexte où la fluidité, la confidentialité et la traçabilité des échanges professionnels sont devenues essentielles, une structure locale a identifié un besoin critique : centraliser les communications internes et garantir la confidentialité des échanges, y compris en l'absence de connexion Internet. Cette exigence s'inscrit dans une volonté de renforcer la sécurité des informations sensibles et d'assurer la continuité des échanges au sein du réseau local, tout en limitant l’exposition des données à des services externes."
+        : "In a context where secure, reliable, and traceable professional communication is essential, a local organization has identified a critical need: to centralize internal messaging and ensure the confidentiality of exchanges, even in the absence of an Internet connection. This need reflects a broader goal of strengthening information security and maintaining communication continuity within the local network, while avoiding reliance on external services.",
+      role: language === "fr"
+        ? "En tant que développeur backend, j’ai conçu et mis en œuvre une infrastructure de communication interne sécurisée, répondant aux exigences de confidentialité et de résilience exprimées par la structure. Mon intervention a notamment porté sur la reutilisation d'un  module d’authentification maison, ainsi que sur la configuration d’une architecture de communication temps réel sur réseau local via WebSockets. Le système, déployé sur un serveur interne, permet des échanges internes fluides, centralisés et totalement autonomes vis-à-vis d’Internet."
+        : "As a backend developer, I designed and implemented a secure internal communication infrastructure tailored to the organization’s need for confidentiality and operational resilience. This involved using an existing custom authentication module and setting up a real-time communication architecture over the local network using WebSockets. Deployed on an internal server, the system enables centralized, reliable, and autonomous exchanges, independent of Internet connectivity.",
+      solution: language === "fr"
+        ? [
+          "Architecture hybride : Django est utilisé pour la gestion des fonctionnalités classiques, tandis que Django Channels prend en charge la communication en temps réel via WebSockets.",
+          "Distribution des messages : Redis est utilisé comme bus de messages en mode pub/sub, facilitant la diffusion instantanée entre les clients connectés.",
+          "Stockage unifié : Toutes les données, y compris les messages, sont stockées dans PostgreSQL, assurant cohérence et simplicité d’administration.",
+          "Déploiement local : Le système est déployé sur un serveur Ubuntu local, avec Gunicorn pour Django, Daphne pour le support WebSocket, et Nginx comme reverse proxy. L’ensemble est orchestré via Docker Compose.",
+        ]
+        : [
+          "Hybrid Architecture: Django handles standard backend features, while Django Channels manages real-time communication via WebSockets.",
+          "Message Distribution: Redis is used as a pub/sub message broker, enabling instant message delivery between connected clients.",
+          "Centralized Storage: All data, including exchanged messages, is stored in PostgreSQL to ensure consistency and simplified administration.",
+          "Local Deployment: The system runs on a local Ubuntu server using Gunicorn for Django, Daphne for WebSocket support, and Nginx as a reverse proxy. All services are orchestrated using Docker Compose.",
+        ],
+      stack: ["Django", "Channels", "Redis", "PostgreSQL", "Docker", "Nginx", "Gunicorn", "Daphne"],
+    }
+    ,
     {
       id: "intermediation-bancaire-itns",
       title:
         language === "fr"
-          ? "Amélioration backend d'une application d’intermédiation bancaire"
+          ? "Amélioration backend d'une application d'intermédiation bancaire"
           : "Backend improvement of a banking intermediation platform",
       icon: <Lock className="w-10 h-10 mx-auto" />,
       accroche:
         language === "fr"
-          ? "Refonte technique et évolutions fonctionnelles d’une plateforme d’intermédiation bancaire existante afin d’en renforcer la robustesse, la modularité et la sécurité."
+          ? "Refonte technique et évolutions fonctionnelles d'une plateforme d'intermédiation bancaire existante afin d'en renforcer la robustesse, la modularité et la sécurité."
           : "Technical refactoring and functional evolution of an existing banking intermediation platform to strengthen robustness, modularity, and security.",
       contexte:
         language === "fr"
-          ? "ITNS disposait d'une application d’intermédiation bancaire en production, mais qui nécessitait une série d’améliorations pour gagner en fiabilité, modularité et conformité. Le projet visait à optimiser la structure backend existante tout en ajoutant de nouvelles fonctionnalités demandées par les utilisateurs finaux ou les partenaires bancaires."
+          ? "ITNS disposait d'une application d'intermédiation bancaire en production, mais qui nécessitait une série d'améliorations pour gagner en fiabilité, modularité et conformité. Le projet visait à optimiser la structure backend existante tout en ajoutant de nouvelles fonctionnalités demandées par les utilisateurs finaux ou les partenaires bancaires."
           : "ITNS had a banking intermediation application already in production, but it needed several improvements to enhance reliability, modularity, and compliance. The project aimed to optimize the existing backend structure while adding new features requested by end users and banking partners.",
       role:
         language === "fr"
-          ? "En tant que Développeur Backend consultant, j’ai été chargé de réaliser des tâches ciblées répondant à des besoins fonctionnels précis. Cela a inclus la refonte du schéma de base de données pour améliorer la modularité, ainsi que l’implémentation de fonctionnalités métiers critiques telles que la soumission de demandes de prêt ou l'affichage des offres bancaires filtrées selon le profil utilisateur."
+          ? "En tant que Développeur Backend consultant, j'ai été chargé de réaliser des tâches ciblées répondant à des besoins fonctionnels précis. Cela a inclus la refonte du schéma de base de données pour améliorer la modularité, ainsi que l'implémentation de fonctionnalités métiers critiques telles que la soumission de demandes de prêt ou l'affichage des offres bancaires filtrées selon le profil utilisateur."
           : "As a Backend Developer consultant, I was responsible for executing targeted tasks to meet specific functional needs. This included redesigning the database schema to improve modularity, and implementing business-critical features such as loan application submission or filtering banking offers based on user profiles.",
       solution:
         language === "fr"
@@ -408,41 +410,40 @@ const Portfolio = () => {
       stack: ["Django", "Django Rest Framework", "PostgreSQL", "MongoDB", "django-filters"],
     },
     {
-  id: "georeferencement-congo",
-  title:
-    language === "fr"
-      ? "Système modulaire de géoréférencement des centres d’intérêts"
-      : "Modular georeferencing system for points of interest",
-  icon: <Map className="w-10 h-10 mx-auto" />,
-  accroche:
-    language === "fr"
-      ? "Une plateforme de cartographie intelligente capable d’agréger et de gérer plusieurs types de centres d’intérêts géolocalisés (entreprises, stations, concessions minières, agences bancaires, etc.) dans une architecture unifiée et performante."
-      : "An intelligent mapping platform capable of aggregating and managing various types of geolocated points of interest (businesses, stations, mining concessions, bank agencies, etc.) in a unified and efficient architecture.",
-  contexte:
-    language === "fr"
-      ? "Dans un contexte de développement économique accéléré au Congo-Brazzaville, les particuliers et entreprises ont besoin de solutions de visualisation et d’analyse spatiale centralisées pour prendre des décisions stratégiques. Cette application de géoréférencement vise à répondre à ce besoin en permettant la cartographie dynamique et l’analyse de différents types d’entités localisées (centres d’intérêts) dans une interface unique."
-      : "In the context of accelerated economic development in Congo-Brazzaville, individuals and businesses need centralized geospatial visualization and analysis solutions to support strategic decisions. This georeferencing application addresses this need by enabling dynamic mapping and analysis of various localized entities (points of interest) through a single interface.",
-  role:
-    language === "fr"
-      ? "En tant que Développeur Backend, ma mission est de concevoir un schéma de base de données modulaire capable de représenter efficacement différents types de centres d’intérêts, en factorisant leurs caractéristiques communes et en respectant leurs spécificités. J'ai également pour rôle de proposer des structures d’API performantes et une interface d’analyse intuitive à destination d’analystes métier, avec des statistiques géospatiales exploitables (répartition, densité, proximité)."
-      : "As a Backend Developer, my role is to design a modular database schema capable of effectively representing different types of points of interest, factoring in their common characteristics while preserving their specificities. I also design efficient API structures and propose an intuitive analysis interface aimed at business analysts, featuring actionable geospatial statistics (distribution, density, proximity).",
-  solution:
-    language === "fr"
-      ? [
-          "Modélisation avec `PolymorphicModel` de django-polymorphic : gestion centralisée des centres d’intérêts tout en conservant les champs spécifiques à chaque type (station, entreprise, agence, etc.), avec des requêtes unifiées.",
-          "Optimisation géospatiale avec PostGIS : stockage des coordonnées, affichage sur carte interactive, et calculs de distances dynamiques entre entités.",
-          "API REST unifiée : récupération efficace et filtrée des centres d’intérêt, compatible GeoJSON pour une intégration directe côté frontend cartographique.",
-          "Proposition d’un tableau de bord analytique : indicateurs spatiaux clés pour l’analyse métier (nombre par type, répartition géographique, proximité avec zones stratégiques)."
-        ]
-      : [
-          "Modeling with `PolymorphicModel` from django-polymorphic: centralized management of all points of interest while preserving type-specific fields (station, company, agency, etc.) with unified queries.",
-          "Geospatial optimization with PostGIS: coordinate storage, interactive map display, and dynamic distance calculations between entities.",
-          "Unified REST API: efficient and filtered retrieval of all points of interest, GeoJSON-compatible for direct frontend map integration.",
-          "Analytical dashboard proposal: key spatial indicators for business analysis (count by type, geographic distribution, proximity to strategic zones)."
-        ],
-  stack: ["Django", "PostgreSQL", "PostGIS", "Django Rest Framework", "django-polymorphic", "MapBox"],
-}
-
+      id: "georeferencement-congo",
+      title:
+        language === "fr"
+          ? "Système modulaire de géoréférencement des centres d'intérêts"
+          : "Modular georeferencing system for points of interest",
+      icon: <Map className="w-10 h-10 mx-auto" />,
+      accroche:
+        language === "fr"
+          ? "Une plateforme de cartographie intelligente capable d'agréger et de gérer plusieurs types de centres d'intérêts géolocalisés (entreprises, stations, concessions minières, agences bancaires, etc.) dans une architecture unifiée et performante."
+          : "An intelligent mapping platform capable of aggregating and managing various types of geolocated points of interest (businesses, stations, mining concessions, bank agencies, etc.) in a unified and efficient architecture.",
+      contexte:
+        language === "fr"
+          ? "Dans un contexte de développement économique accéléré au Congo-Brazzaville, les particuliers et entreprises ont besoin de solutions de visualisation et d'analyse spatiale centralisées pour prendre des décisions stratégiques. Cette application de géoréférencement vise à répondre à ce besoin en permettant la cartographie dynamique et l'analyse de différents types d'entités localisées (centres d'intérêts) dans une interface unique."
+          : "In the context of accelerated economic development in Congo-Brazzaville, individuals and businesses need centralized geospatial visualization and analysis solutions to support strategic decisions. This georeferencing application addresses this need by enabling dynamic mapping and analysis of various localized entities (points of interest) through a single interface.",
+      role:
+        language === "fr"
+          ? "En tant que Développeur Backend, ma mission est de concevoir un schéma de base de données modulaire capable de représenter efficacement différents types de centres d'intérêts, en factorisant leurs caractéristiques communes et en respectant leurs spécificités. J'ai également pour rôle de proposer des structures d'API performantes et une interface d'analyse intuitive à destination d'analystes métier, avec des statistiques géospatiales exploitables (répartition, densité, proximité)."
+          : "As a Backend Developer, my role is to design a modular database schema capable of effectively representing different types of points of interest, factoring in their common characteristics while preserving their specificities. I also design efficient API structures and propose an intuitive analysis interface aimed at business analysts, featuring actionable geospatial statistics (distribution, density, proximity).",
+      solution:
+        language === "fr"
+          ? [
+            "Modélisation avec `PolymorphicModel` de django-polymorphic : gestion centralisée des centres d'intérêts tout en conservant les champs spécifiques à chaque type (station, entreprise, agence, etc.), avec des requêtes unifiées.",
+            "Optimisation géospatiale avec PostGIS : stockage des coordonnées, affichage sur carte interactive, et calculs de distances dynamiques entre entités.",
+            "API REST unifiée : récupération efficace et filtrée des centres d'intérêt, compatible GeoJSON pour une intégration directe côté frontend cartographique.",
+            "Proposition d'un tableau de bord analytique : indicateurs spatiaux clés pour l'analyse métier (nombre par type, répartition géographique, proximité avec zones stratégiques).",
+          ]
+          : [
+            "Modeling with `PolymorphicModel` from django-polymorphic: centralized management of all points of interest while preserving type-specific fields (station, company, agency, etc.) with unified queries.",
+            "Geospatial optimization with PostGIS: coordinate storage, interactive map display, and dynamic distance calculations between entities.",
+            "Unified REST API: efficient and filtered retrieval of all points of interest, GeoJSON-compatible for direct frontend map integration.",
+            "Analytical dashboard proposal: key spatial indicators for business analysis (count by type, geographic distribution, proximity to strategic zones).",
+          ],
+      stack: ["Django", "PostgreSQL", "PostGIS", "Django Rest Framework", "django-polymorphic", "MapBox"],
+    },
   ]
 
   // Function to navigate to a specific project
@@ -529,6 +530,7 @@ const Portfolio = () => {
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-gradient-to-br from-blue-500/10 via-purple-500/5 to-pink-500/10 rounded-full blur-3xl animate-pulse-slow"></div>
           <div className="absolute top-1/3 right-1/4 w-[400px] h-[400px] bg-gradient-to-bl from-pink-500/15 to-blue-500/10 rounded-full blur-2xl animate-float"></div>
         </div>
+
         <div className="mx-auto max-w-4xl py-32 sm:py-48 lg:py-22 text-center relative z-10">
           <div className="animate-fade-in-up">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 dark:bg-blue-400/20 text-blue-600 dark:text-blue-400 text-sm font-medium mb-8 animate-bounce-gentle border border-blue-200 dark:border-blue-800">
@@ -554,7 +556,6 @@ const Portfolio = () => {
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               </button>
-
               <a
                 href="/NYEMECK'S CV.pdf"
                 download
@@ -566,7 +567,6 @@ const Portfolio = () => {
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-emerald-600 to-teal-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               </a>
-
               <button
                 onClick={() => setCurrentPage("contact")}
                 className="group px-8 py-4 text-sm font-semibold text-gray-900 dark:text-white border-2 border-gray-300 dark:border-gray-600 rounded-full hover:border-blue-500 dark:hover:border-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all duration-300 backdrop-blur-sm"
@@ -636,8 +636,8 @@ const Portfolio = () => {
                 className="group flex flex-col items-center gap-3 text-center p-6 rounded-xl hover:bg-white dark:hover:bg-gray-800 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 border border-transparent hover:border-blue-200 dark:hover:border-blue-700 hover:shadow-lg animate-fade-in-up"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="text-blue-600 dark:text-blue-400 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors duration-300 group-hover:scale-110 transform">
-                  {tech.icon}
+                <div className="group-hover:scale-110 transform transition-all duration-300">
+                  <img src={tech.image || "/placeholder.svg"} alt={tech.name} className="w-8 h-8 object-contain" />
                 </div>
                 <span className="text-sm font-medium text-gray-600 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-300">
                   {tech.name}
@@ -835,7 +835,6 @@ const Portfolio = () => {
         <div className="px-6 py-24 sm:py-32 lg:px-8 animate-fade-in-up" style={{ animationDelay: "300ms" }}>
           <div className="mx-auto max-w-xl">
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">{t("sendMessage")}</h3>
-
             {formStatus === "success" && (
               <div className="mb-6 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg">
                 <p className="text-green-800 dark:text-green-200 flex items-center gap-2">
@@ -844,13 +843,11 @@ const Portfolio = () => {
                 </p>
               </div>
             )}
-
             {formStatus === "error" && (
               <div className="mb-6 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg">
                 <p className="text-red-800 dark:text-red-200">{t("messageError")}</p>
               </div>
             )}
-
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-900 dark:text-white mb-2">
@@ -1063,22 +1060,6 @@ const Portfolio = () => {
                 className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
               >
                 <Mail className="w-5 h-5" />
-              </a>
-              <a
-                href="https://github.com/votre-profil"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
-              >
-                <Github className="w-5 h-5" />
-              </a>
-              <a
-                href="https://linkedin.com/in/votre-profil"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
-              >
-                <Linkedin className="w-5 h-5" />
               </a>
             </div>
           </div>
